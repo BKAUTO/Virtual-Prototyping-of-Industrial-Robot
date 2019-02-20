@@ -10,7 +10,7 @@ I am now having some problems push the related files by Git.
 
 Please download the whole project from the link below.
 
-Folder 'Virtual Factory' is already a Unity3D project. Recommend to use a version of Unity3D above **2018.2** to open this project.
-You can find all the codes under the directory 'Virtual Factory/Assets/Scripts'.
-
 [Unity3D project Download](https://pan.baidu.com/s/18jQDzMsOkFFwm-3jxTUbRQ)
+
+Folder 'Virtual Factory' is already a Unity3D project. Recommend to use a version of Unity3D above **2018.2** to open this project.   
+You can find all the codes under the directory 'Virtual Factory/Assets/Scripts'.
