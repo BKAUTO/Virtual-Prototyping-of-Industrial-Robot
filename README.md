@@ -10,7 +10,7 @@ I am now having some problems push the related files by Git.
 
 Please download the whole project from the link below.
 
-[Unity3D project Download](https://pan.baidu.com/s/18jQDzMsOkFFwm-3jxTUbRQ)
+[Unity3D project Download](https://drive.google.com/open?id=1b2rE-vnOvlX41jLxBW0wjWPsfUpQ5Lrn)
 
 Folder 'Virtual Factory' is already a Unity3D project.   
 Recommend to use a version of Unity3D above **2018.2** to open this project.   
