@@ -5,7 +5,8 @@
 3. Used Socket to connect the industrial robot with the upper computer. Wrote the network service program between the upper computer and the lower computer, etc..
 ## *Preliminary Effect Display*
 https://youtu.be/GJ9KVLfeftc(Version 1.0.2 with control function from PC & better visualization  UI)  
-https://www.youtube.com/watch?v=_v7NjdfjCTQ(The first version with only simultaneous motion)
+
+https://youtu.be/v7NjdfjCTQ(First version with only simultaneous motion)
 ## *Instruction*
 I am now having some problems push the related files by Git.
 
