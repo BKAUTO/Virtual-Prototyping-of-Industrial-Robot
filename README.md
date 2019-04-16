@@ -10,7 +10,6 @@ https://youtu.be/GJ9KVLfeftc
 https://youtu.be/v7NjdfjCTQ  
 (First version with only simultaneous motion)
 ## *Instruction*
-I am now having some problems push the related files by Git.
 
 Please download the whole project from the link below.
 
