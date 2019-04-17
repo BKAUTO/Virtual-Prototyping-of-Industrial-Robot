@@ -10,13 +10,12 @@ https://youtu.be/GJ9KVLfeftc
 https://youtu.be/v7NjdfjCTQ  
 (First version with only simultaneous motion)
 ## *Instruction*
+Folder '虚拟样机展示系统' includes the **.exe** to show the effect. You may need a 6DOF industrial robot to connect with this software.  
 
-Please download the whole project from the link below.
-
-[Unity3D project Download](https://drive.google.com/open?id=1b2rE-vnOvlX41jLxBW0wjWPsfUpQ5Lrn)
-
-Folder 'Virtual Factory' is already a Unity3D project.   
+Folder 'Virtual Factory_Version 1.0.X' is a Unity3D project.   
 Recommend to use a version of Unity3D above **2018.2** to open this project.   
-You can find all the codes under the directory 'Virtual Factory/Assets/Scripts'.  
+You can find all the codes under the directory **'Virtual Factory/Assets/Scripts'**.  
+
+The latest Version 1.0.3 append the control of manipulator（Robot hand） which is also realized by TCP/IP socket connection. As a result, you should play the control program (CohandDemo_Windows) of the manipulaor (developed by C++) **after the connection between industrial robot and Unity3D software**. 
 
 I am also completing an essay about this research, find the very shabby first version in Chinese [here](https://drive.google.com/open?id=1fVowi8dBVpidwzCsw2xcJZWmn_ISRV2L).
