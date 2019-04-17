@@ -4,11 +4,10 @@
 2. Completed the CAD modeling and motion analysis of the mechanical arm. Wrote the related program of virtual prototype of mechanical arm and built the display interface.
 3. Used Socket to connect the industrial robot with the upper computer. Wrote the network service program between the upper computer and the lower computer, etc..
 
-![Effect Picture](https://github.com/BKAUTO/Virtual-Prototyping-of-Industrial-Robot/blob/master/Effect.JPG)
 <p align="center">
 	<img src="https://github.com/BKAUTO/Virtual-Prototyping-of-Industrial-Robot/blob/master/Effect.JPG" alt="Sample"  width="800" height="600">
 	<p align="center">
-		<em>图片示例2</em>
+		<em>Effect demonstration</em>
 	</p>
 </p>
 
