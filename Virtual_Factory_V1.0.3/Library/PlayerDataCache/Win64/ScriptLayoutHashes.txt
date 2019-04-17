@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/QGH/Desktop/虚拟样机v1.0.3_测试/Virtual Factory.exe
+C:/Users/my/Desktop/虚拟样机展示系统_V 1.0.3/Virtual Factory.exe
 SceneListBegin?
 Assets/Factory.unity
 SceneListEnd?
@@ -219,6 +219,7 @@ de285b37582bd26663258776dc87aa54 Assembly-CSharp.dll:UnityStandardAssets.SceneUt
 63ddd541b0be4692130653e47c9df4c5 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.SpecularLighting
 6cb8e166eb7b5eba6567fb6b107b6d77 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.WaypointCircuit
 d33ca682ebf67c138052c44a5b20c529 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Cameras.TargetFieldOfView
+f0add7be24038a7ca13d3946c68b69b1 Assembly-CSharp.dll:server.test
 72a8523b432c0a5317826b7a9e0a0e79 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 2f3f1ce8b23b682f3b00a9ce61255f6a Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.Water
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
@@ -228,11 +229,9 @@ fd5bec7c3a0fba860bb3b16a37b8f7c4 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 a90d6901a99744ae38d30050782e4e34 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Cameras.HandHeldCam
 ab81ce3bab66b27457f2d7b929fb80fc Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Aeroplane.AeroplanePropellerAnimator
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Demo0
-ddcae71b3f91386237efd012a9eef2be UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
 486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 9d863b523b577f5c3d915351a74cd338 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
-486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.TestResultRendererCallback
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp-firstpass.dll:.AlphaButtonClickMask
 1a90b221dc803408fbafa883c12bcab4 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 70f7dc248db3379548a88e8d4fa049f8 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
@@ -247,7 +246,6 @@ f323f056e5fad3139eb86276a7c8be38 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 b1665faa1f03d8ff9b1b1b0cdf32ecda Assembly-CSharp.dll:.MenuSceneLoader
 1dfc4d60914e7337a82796a42db50dd2 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.SimpleActivatorMenu
 c4028eb45f0635371827576e97a9284f Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.Mudguard
-486cd95c82d8305219c352c06b776e1f UnityEngine.PerformanceTesting.dll:UnityEngine.PerformanceTesting.FrameTimeMeasurement
 5f7f5d6a5e842d800db4f0fd8bbe1e14 Assembly-CSharp.dll:UnityStandardAssets.SceneUtils.PlaceTargetWithMouse
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -284,4 +282,3 @@ c84df70616e3e507b0e656baaa2dee37 Assembly-CSharp.dll:Chat.ChatClient
 f0add7be24038a7ca13d3946c68b69b1 Assembly-CSharp.dll:server.Demo
 36ed8d92a07a53bf383bc90e377cc388 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 695c9335429d4798b6f74ca73c042ff4 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
-f0add7be24038a7ca13d3946c68b69b1 Assembly-CSharp.dll:server.test
