@@ -5,7 +5,12 @@
 3. Used Socket to connect the industrial robot with the upper computer. Wrote the network service program between the upper computer and the lower computer, etc..
 
 ![Effect Picture](https://github.com/BKAUTO/Virtual-Prototyping-of-Industrial-Robot/blob/master/Effect.JPG)
-<img style="width:800px;height:600px" src="https://github.com/BKAUTO/Virtual-Prototyping-of-Industrial-Robot/blob/master/Effect.JPG"  alt="真棒" align=center />
+<p align="center">
+	<img src="https://github.com/BKAUTO/Virtual-Prototyping-of-Industrial-Robot/blob/master/Effect.JPG" alt="Sample"  width="800" height="600">
+	<p align="center">
+		<em>图片示例2</em>
+	</p>
+</p>
 
 ## *Preliminary Effect Display*
 https://youtu.be/GJ9KVLfeftc  
