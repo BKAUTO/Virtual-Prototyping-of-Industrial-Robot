@@ -28,7 +28,8 @@ namespace server
         public Text chatText;
         public ScrollRect scrollRect;
         public static string displayText;
-        public static List<Socket> lst = new List<Socket>();
+        public static Socket[] lst = new Socket[10];
+        private static int armSocketCount = 0;//机械臂创建两个socket客户端，一个用来发送关节角度给上位机，一个用来接收控制信号
 
         public void TextPrint(string addText)
         {
@@ -84,16 +85,18 @@ namespace server
                 temp = s.Accept();
                 if (temp.RemoteEndPoint.ToString().Contains("192.168.2.160"))//机械臂连接上
                 {
-                    Debug.Log("1111");
-                    if (lst.Count == 0)
+                   if(armSocketCount == 0)
                     {
-                        lst.Add(temp);
-                    }
-                    else
                         lst[0] = temp;
-                    flag = true;
+                        flag = true;
+                        armSocketCount += 1;
+                    }
+                   else if(armSocketCount == 1)
+                    {
+                        lst[2] = temp;
+                    }
                 }
-                else if(flag == false)
+                else if(flag == false)//没有连接机械臂而先连接了其他设备
                 {
                     Debug.Log("2222");
                     displayText = "\n" + "<color=red>" + "请先连接机械臂,程序出错请重启" + "</color>" + "\n";
@@ -104,7 +107,7 @@ namespace server
                 {
                     Debug.Log("3333");
                     flag3 = true;
-                    lst.Add(temp);
+                    lst[3]=temp;
                 }
                 displayText = "\n" + "<color=black>" + "客户端 " + "</color>" + "<color=green>" + temp.RemoteEndPoint.ToString() + "</color>" + "<color=black>" + "已连接\n" + "</color>";
                 flag2 = true;
@@ -188,7 +191,7 @@ namespace server
                     recvStr = Encoding.UTF8.GetString(recvBytes, 0, bytes1);
                     variable = GetVariable(recvStr);
                     //print("server get message: " + recvStr + "\n");
-
+                    
                     //for (int i = 0; i < 6; i++)
                     //{
                     //print(variable[i] + "\n");
@@ -200,6 +203,7 @@ namespace server
                     displayText = "\n" + "<color=red>" + "已断开，等待机械臂连接......\n" + "</color>";
                     flag2 = true;
                     flag = false;
+                    armSocketCount = armSocketCount - 1;//armSocketCount = 0;
                 }
                 /*if (temp.Poll(-1, SelectMode.SelectRead))
                 {
