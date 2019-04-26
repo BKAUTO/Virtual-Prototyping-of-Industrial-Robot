@@ -14,17 +14,21 @@ namespace server
 {
     class Demo : MonoBehaviour
     {
-        public static string recvStr = "";
-        public static byte[] recvBytes = new byte[1024];//机械臂数据内存缓冲区,1k
+        public static string recvStr = "";//接收机械臂关节数据
+        public static string recvStr2 = "";//机械臂控制信号
+        public static byte[] recvBytes = new byte[1024];//机械臂关节数据内存缓冲区,1k
         public static byte[] recvBytes2 = new byte[1024];//其他设备内存缓冲区
+        public static byte[] recvBytes3 = new byte[1024];//机械臂控制信号内存缓冲区
         public static int bytes1;//接收机械臂数据
         public static int bytes2;//接收其他数据
+        public static int bytes3;//接收机械臂控制信号
         public static float[] variable = new float[6];
         private const int port = 8088;
         //private static string host = "127.0.0.1";
         private static Socket s;
         public static Socket temp;
-        public static bool flag = false, flag2 = false, flag3 = false;
+        public static bool flag = false, flag2 = false, flag3 = false;//flag用来指示机械臂关节数据传输socket连接情况，flag2控制前端提示信息显示，flag3指示外设（电爪）连接情况
+        public static bool flag4 = false;//flag4指示机械臂控制信号socket连接情况
         public Text chatText;
         public ScrollRect scrollRect;
         public static string displayText;
@@ -85,15 +89,16 @@ namespace server
                 temp = s.Accept();
                 if (temp.RemoteEndPoint.ToString().Contains("192.168.2.160"))//机械臂连接上
                 {
-                   if(armSocketCount == 0)
+                   if(armSocketCount == 0)//机械臂数据传输socket
                     {
                         lst[0] = temp;
                         flag = true;
                         armSocketCount += 1;
                     }
-                   else if(armSocketCount == 1)
+                   else if(armSocketCount == 1)//机械臂关节控制信号socket
                     {
                         lst[2] = temp;
+                        flag4 = true;
                     }
                 }
                 else if(flag == false)//没有连接机械臂而先连接了其他设备
@@ -221,6 +226,19 @@ namespace server
                     flag2 = true;
                     flag = false;
                 }*/
+            }
+            if(flag4 == true)
+            {
+                try
+                {
+                    bytes3 = lst[2].Receive(recvBytes3, recvBytes3.Length, 0);
+                    recvStr2 = Encoding.UTF8.GetString(recvBytes3, 0, bytes3);
+                }
+                catch
+                {
+                    displayText = "\n" + "<color=red>" + "joint运动控制信号传输失败......\n" + "</color>";
+                    flag2 = true;
+                }
             }
             /*if (flag3 == true)
             {

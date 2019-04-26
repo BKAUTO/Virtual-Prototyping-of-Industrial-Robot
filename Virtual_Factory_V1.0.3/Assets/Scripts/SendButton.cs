@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using server;
 
 
 public class SendButton : MonoBehaviour
@@ -25,17 +27,51 @@ public class SendButton : MonoBehaviour
     }
     public void OnClickBtn6()
     {
-        string addText = "\n  " + "<color=red>" + "开始运动至当前位姿" + "</color>";
-        chatText.text += addText;
-        //chatInput.text = "";
+        if(Demo.recvStr2[0] == 49)//机械臂运动完毕可以接收新的关节角度
+        {
+            Demo.displayText = "\n  " + "<color=red>" + "开始运动至当前位姿" + "</color>";
+            Demo.flag2 = true;
+
+            byte[] bs = Encoding.UTF8.GetBytes(jointInput1.text+"\n");
+            Demo.lst[3].Send(bs, bs.Length, 0);//发送第一个角度给客户端
+            Debug.Log(jointInput1.text);
+            jointInput1.text = "";
+
+            bs = Encoding.UTF8.GetBytes(jointInput2.text+"\n");
+            Demo.lst[3].Send(bs, bs.Length, 0);//第二个
+            Debug.Log(jointInput2.text);
+            jointInput2.text = "";
+
+            bs = Encoding.UTF8.GetBytes(jointInput3.text + "\n");
+            Demo.lst[3].Send(bs, bs.Length, 0);//第三个
+            Debug.Log(jointInput3.text);
+            jointInput3.text = "";
+
+            bs = Encoding.UTF8.GetBytes(jointInput4.text + "\n");
+            Demo.lst[3].Send(bs, bs.Length, 0);//第四个
+            Debug.Log(jointInput4.text);
+            jointInput4.text = "";
+
+            bs = Encoding.UTF8.GetBytes(jointInput5.text + "\n");
+            Demo.lst[3].Send(bs, bs.Length, 0);//第五个
+            Debug.Log(jointInput5.text);
+            jointInput5.text = "";
+
+            bs = Encoding.UTF8.GetBytes(jointInput6.text + "\n");
+            Demo.lst[3].Send(bs, bs.Length, 0);//第六个
+            Debug.Log(jointInput6.text);
+            jointInput6.text = "";
+        }
+        else if(Demo.recvStr2[0] == 48)//机械臂仍在运动
+        {
+            Demo.displayText = "\n  " + "<color=red>" + "机械臂仍在运动，请稍等..." + "</color>";
+            Demo.flag2 = true;
+        }
         jointInput1.ActivateInputField();
         jointInput2.ActivateInputField();
         jointInput3.ActivateInputField();
         jointInput4.ActivateInputField();
         jointInput5.ActivateInputField();
         jointInput6.ActivateInputField();
-        Canvas.ForceUpdateCanvases();       //关键代码
-        scrollRect.verticalNormalizedPosition = 0f;  //关键代码
-        Canvas.ForceUpdateCanvases();   //关键代码
     }
 }
