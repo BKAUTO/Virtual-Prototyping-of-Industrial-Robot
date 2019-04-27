@@ -27,7 +27,7 @@ public class SendButton : MonoBehaviour
     }
     public void OnClickBtn6()
     {
-        if(Demo.recvStr2[0] == 49)//机械臂运动完毕可以接收新的关节角度
+        if(Demo.recvStr2[0] == 49)//机械臂运动完毕可以接收新的位姿
         {
             Demo.displayText = "\n  " + "<color=red>" + "开始运动至当前位姿" + "</color>";
             Demo.flag2 = true;
