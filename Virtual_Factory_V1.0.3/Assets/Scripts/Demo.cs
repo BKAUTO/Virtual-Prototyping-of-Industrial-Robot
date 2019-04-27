@@ -34,6 +34,7 @@ namespace server
         public static string displayText;
         public static Socket[] lst = new Socket[10];
         private static int armSocketCount = 0;//机械臂创建两个socket客户端，一个用来发送关节角度给上位机，一个用来接收控制信号
+        public static double[] pose = new double[6] {295.157246157,-239.277773036,380.116285186,0.0,0.0,0.0};
 
         public void TextPrint(string addText)
         {
@@ -49,36 +50,6 @@ namespace server
             float[] vari = new float[6];
             for (int i = 0; i < 6; i++)
                 vari[i] = Convert.ToSingle(strr[i]);
-
-
-            /*float[] variable = new float[6];
-            decimal[] temp1 = new decimal[6];
-            string[] temp = {"100000","100000","100000","100000","100000","100000"};
-            int j = 0;
-            int k = 0;
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (str[i] == ',')
-                {
-                    j++;
-                    k = 0;
-                }
-                else
-                {
-                    char[] strr = temp[j].ToCharArray();
-                    strr[k] = str[i];
-                    k++;
-                    temp[j] = new string(strr);
-                }
-            }
-            for (int i = 0; i <= j; i++)
-            {
-                temp1[i] = Convert.ToDecimal(temp[i]);
-            }
-            for (int i = 0; i <= j; i++)
-            {
-                variable[i] = Convert.ToSingle(temp1[i]);
-            }*/
             return vari;
         }
 
@@ -94,11 +65,13 @@ namespace server
                         lst[0] = temp;
                         flag = true;
                         armSocketCount += 1;
+                        Debug.Log("关节数据socket连接成功");
                     }
                    else if(armSocketCount == 1)//机械臂关节控制信号socket
                     {
                         lst[2] = temp;
                         flag4 = true;
+                        Debug.Log("远程控制socket连接成功");
                     }
                 }
                 else if(flag == false)//没有连接机械臂而先连接了其他设备
@@ -116,20 +89,6 @@ namespace server
                 }
                 displayText = "\n" + "<color=black>" + "客户端 " + "</color>" + "<color=green>" + temp.RemoteEndPoint.ToString() + "</color>" + "<color=black>" + "已连接\n" + "</color>";
                 flag2 = true;
-                //string sendStr = "state\r";
-                //byte[] bs = Encoding.UTF8.GetBytes(sendStr);
-                //temp.Send(bs, bs.Length, 0);//发送信息给客户端
-
-                //bytes = temp.Receive(recvBytes, recvBytes.Length, 0);
-                //recvStr = Encoding.UTF8.GetString(recvBytes, 0, bytes);
-                //TextPrint(recvStr+"\n");
-                /*if(temp.Poll(10, SelectMode.SelectRead) == true)
-                {
-                    temp.Close();
-                    displayText = "\n" + "<color=red>" + "等待机械臂连接......\n" + "</color>";
-                    flag2 = true;
-                    flag = false;
-                }*/
             }
         }
 
@@ -156,25 +115,7 @@ namespace server
             thread.Start();
         }
 
-        /*void OnGUI()
-        {
-            if (GUI.Button(new Rect(240, 10, 120, 20), "Arm_Connect"))
-            {
-                string sendStr = "jnt_pos\r";
-                byte[] bs = Encoding.UTF8.GetBytes(sendStr);
-                temp.Send(bs, bs.Length, 0);//返回信息给客户端
-
-                bytes = temp.Receive(recvBytes, recvBytes.Length, 0);
-                recvStr = Encoding.UTF8.GetString(recvBytes, 0, bytes);
-                variable = GetVariable(recvStr);//
-                print("server get message: " + recvStr + "\n");
-
-                for(int i=0; i<6; i++)
-                {
-                    print(variable[i]+"\n");
-                }
-            }
-        }*/
+      
 
         void Update()
         {
@@ -192,47 +133,54 @@ namespace server
                     byte[] bs = Encoding.UTF8.GetBytes(sendStr);
                     lst[0].Send(bs, bs.Length, 0);//发送信息给客户端
 
-                    bytes1 = lst[0].Receive(recvBytes, recvBytes.Length, 0);
+                    bytes1 = lst[0].Receive(recvBytes, recvBytes.Length, 0);//接收关节数据
                     recvStr = Encoding.UTF8.GetString(recvBytes, 0, bytes1);
                     variable = GetVariable(recvStr);
-                    //print("server get message: " + recvStr + "\n");
-                    
-                    //for (int i = 0; i < 6; i++)
-                    //{
-                    //print(variable[i] + "\n");
-                    //}
                 }
                 catch
                 {
+
                     Debug.Log("4444");
                     displayText = "\n" + "<color=red>" + "已断开，等待机械臂连接......\n" + "</color>";
                     flag2 = true;
                     flag = false;
                     armSocketCount = armSocketCount - 1;//armSocketCount = 0;
                 }
-                /*if (temp.Poll(-1, SelectMode.SelectRead))
-                {
-                    int nRead = temp.Receive(recvBytes, recvBytes.Length, 0);
-                    if (nRead == 0)
-                    {
-                        displayText = "\n" + "<color=red>" + "等待机械臂连接......\n" + "</color>";
-                        flag2 = true;
-                    }
-                }*/
-
-                /*if(temp.Poll(10, SelectMode.SelectRead)==true)
-                {
-                    displayText = "\n" + "<color=red>" + "等待机械臂连接......\n" + "</color>";
-                    flag2 = true;
-                    flag = false;
-                }*/
             }
             if(flag4 == true)
             {
                 try
                 {
+                    Debug.Log("开始接收控制信号");
                     bytes3 = lst[2].Receive(recvBytes3, recvBytes3.Length, 0);
                     recvStr2 = Encoding.UTF8.GetString(recvBytes3, 0, bytes3);
+                    Debug.Log("接收到："+recvStr2);
+                    /*if(recvStr2[0]=='1')
+                    {
+                        byte[] bs = Encoding.UTF8.GetBytes(pose[0]+ "\r");
+                        lst[2].Send(bs, bs.Length, 0);//发送第一个角度给客户端
+                        Debug.Log(pose[0]);
+
+                        bs = Encoding.UTF8.GetBytes(pose[1] + "\r");
+                        lst[2].Send(bs, bs.Length, 0);//第二个
+                        Debug.Log(pose[1]);
+
+                        bs = Encoding.UTF8.GetBytes(pose[2] + "\r");
+                        lst[2].Send(bs, bs.Length, 0);//第三个
+                        Debug.Log(pose[2]);
+
+                        bs = Encoding.UTF8.GetBytes(pose[3] + "\r");
+                        lst[2].Send(bs, bs.Length, 0);//第四个
+                        Debug.Log(pose[3]);
+
+                        bs = Encoding.UTF8.GetBytes(pose[4] + "\r");
+                        lst[2].Send(bs, bs.Length, 0);//第五个
+                        Debug.Log(pose[4]);
+
+                        bs = Encoding.UTF8.GetBytes(pose[5] + "\r");
+                        lst[2].Send(bs, bs.Length, 0);//第六个
+                        Debug.Log(pose[5]);
+                    }*/
                 }
                 catch
                 {
@@ -240,28 +188,6 @@ namespace server
                     flag2 = true;
                 }
             }
-            /*if (flag3 == true)
-            {
-                try
-                {
-                    //string sendStr = "";
-                    //byte[] bs = Encoding.UTF8.GetBytes(sendStr);
-                    //lst[1].Send(bs, bs.Length, 0);//发送信息给客户端
-                    //bytes2 = lst[1].Receive(recvBytes, recvBytes.Length, 0);
-                    //recvStr = Encoding.UTF8.GetString(recvBytes, 0, bytes2);
-                    //print("server get message: " + recvStr + "\n");
-
-                    //for (int i = 0; i < 6; i++)
-                    //{
-                    //print(variable[i] + "\n");
-                    //}
-                }
-                catch
-                {
-                    displayText = "\n" + "<color=red>" + temp.RemoteEndPoint.ToString() + "已断开\n" + "</color>";
-                    flag = false;
-                }
-            }*/
         }
     }
 }
