@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/my/Desktop/虚拟样机展示系统_V 1.0.3/Virtual Factory.exe
+C:/Users/my/Desktop/虚拟样机展示系统_V 1.0.4/Virtual Factory.exe
 SceneListBegin?
 Assets/Factory.unity
 SceneListEnd?
@@ -260,7 +260,7 @@ a8235c217b6cf2fe27dca896710ae4ec Assembly-CSharp-firstpass.dll:UnityStandardAsse
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 f5476454eb86e1817e25a825263133c9 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.SmokeParticles
 ebc31dc7976aeffcc84e23b049016bd0 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.FollowTarget
-6739e91eae76c48919da46ed2c615721 Assembly-CSharp.dll:.SendButton
+857346891cd4aa2919cd3640aaa457aa Assembly-CSharp.dll:.SendButton
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Rotate2
 e7243432dd281e72011751efc287823c Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.Camera2DFollow
 2d5613dfea5ebe89d441816537142920 Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TouchPad

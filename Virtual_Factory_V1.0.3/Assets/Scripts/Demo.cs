@@ -30,7 +30,7 @@ namespace server
         public static Socket temp1,temp2;
         public static bool flag = false, flag2 = false, flag3 = false;//flag用来指示机械臂关节数据传输socket连接情况，flag2控制前端提示信息显示，flag3指示外设（电爪）连接情况
         public static bool flag4 = false;//flag4指示机械臂控制信号socket连接情况
-        public static bool flag5 = false;//flag5指示是否可以发送控制信号给机械臂
+        public static bool flag5 = false;//flag5指示是否可以发送希望位姿给机械臂
         public Text chatText;
         public ScrollRect scrollRect;
         public static string displayText;
@@ -105,10 +105,28 @@ namespace server
                     {
                         displayText = "\n" + "<color=red>" + "请先连接机械臂关节数据通道" + "</color>" + "\n";
                         flag2 = true;
+                        temp2.Close();
                     }
                 }
                 displayText = "\n" + "<color=black>" + "客户端 " + "</color>" + "<color=green>" + temp2.RemoteEndPoint.ToString() + "</color>" + "<color=black>" + "已连接\n" + "</color>";
                 flag2 = true;
+            }
+        }
+
+        private void ControlDataHandler()//线程方法，用来接收机械臂传来的控制信号
+        {
+            while (true)
+            {
+                if(flag4 == true)
+                {
+                    bytes2 = 0;
+                    bytes2 = lst[2].Receive(recvBytes2, recvBytes2.Length, 0);
+                    flag5 = true;//理论上接收到1时才能使flag5 = true即使期望位姿发送至机械臂，但未能实现，
+                    //虽不影响远程控制的使用但程序逻辑有问题，希望后续开发者修改
+                    Debug.Log("接收到控制信号");
+                    recvStr2 = Encoding.UTF8.GetString(recvBytes2, 0, bytes2);
+                    Debug.Log("接收到：" + recvStr2);
+                }
             }
         }
 
@@ -144,13 +162,15 @@ namespace server
             TextPrint("\n" + "<color=red>" + "正在等待远程控制通道连接......\n" + "</color>");
             Thread thread2 = new Thread(ClientConnectListen2);
             thread2.Start();
+
+            Thread thread3 = new Thread(ControlDataHandler);//该线程接收机械臂发来的控制信号，指示上位机可以发送位姿
+            thread3.Start();
         }
 
       
-
         void Update()
-        {
-            if(flag2 == true)//仅能在主线程里调用UI组件，flag2用来显示信息，设置displayText后需将其设为true
+        {  
+            if (flag2 == true)//仅能在主线程里调用UI组件，flag2用来显示信息，设置displayText后需将其设为true
             {
                 TextPrint(displayText);
                 flag2 = false;
@@ -159,7 +179,7 @@ namespace server
             {
                 try
                 {
-                    Debug.Log("5555");
+                    //Debug.Log("5555");
                     string sendStr = "jnt_pos\r";
                     byte[] bs = Encoding.UTF8.GetBytes(sendStr);
                     lst[0].Send(bs, bs.Length, 0);//发送信息给客户端
@@ -181,10 +201,6 @@ namespace server
             {
                 try
                 {
-                    Debug.Log("开始接收控制信号");
-                    bytes2 = lst[2].Receive(recvBytes2, recvBytes2.Length, 0);
-                    recvStr2 = Encoding.UTF8.GetString(recvBytes2, 0, bytes2);
-                    Debug.Log("接收到："+recvStr2);
                     if(flag5==true)
                     {
                         string pos1 = Convert.ToString(pose[0]);
@@ -204,6 +220,11 @@ namespace server
                         Debug.Log(pose[4]);
                         Debug.Log(pose[5]);
                         Debug.Log(pose[6]);
+                        flag5 = false;
+                    }
+                    else
+                    {
+                        Debug.Log("不在发送位姿时间内");
                     }
                 }
                 catch
