@@ -121,8 +121,7 @@ namespace server
                 {
                     bytes2 = 0;
                     bytes2 = lst[2].Receive(recvBytes2, recvBytes2.Length, 0);
-                    flag5 = true;//理论上接收到1时才能使flag5 = true即使期望位姿发送至机械臂，但未能实现，
-                    //虽不影响远程控制的使用但程序逻辑有问题，希望后续开发者修改
+                    flag5 = true;//只要接收到机械臂发来的信号,就会在update()中从上位机发送位姿信息给机械臂
                     Debug.Log("接收到控制信号");
                     recvStr2 = Encoding.UTF8.GetString(recvBytes2, 0, bytes2);
                     Debug.Log("接收到：" + recvStr2);
