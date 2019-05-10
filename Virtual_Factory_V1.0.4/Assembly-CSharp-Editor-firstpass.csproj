@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{4572928B-58DB-AD8D-BDDF-E95EF315FF28}</ProjectGuid>
+    <ProjectGuid>{772AC3DF-B5B0-5DC3-B441-4547763680E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
@@ -68,16 +68,16 @@
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.3/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.4/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.4/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.3/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.4/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.3/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.4/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -263,7 +263,7 @@
       <HintPath>D:/Unity/Editor/Data/Managed/Unity.Locator.dll</HintPath>
     </Reference>
     <Reference Include="Facebook.Unity.Settings">
-      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.3/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+      <HintPath>E:/GitHub/Virtual-Prototyping-of-Industrial-Robot/Virtual_Factory_V1.0.4/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -370,7 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{2606D96A-7A12-04AA-64E1-42712CB6768C}</Project>
+      <Project>{47E8AC20-7047-6811-89D0-D2CF3A2B7B8C}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
