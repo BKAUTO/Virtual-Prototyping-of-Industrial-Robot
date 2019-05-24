@@ -1,0 +1,15 @@
+﻿  stdafx.cpp
+  CohandSystemLibDemo2.cpp
+c:\users\my\desktop\cohanddemo_windows\cohandsystemlibdemo2\cohandsystemlibdemo2.cpp(3): warning C4603: “EXPORTBUILD”: 未定义宏或在预编译头使用后定义发生改变
+  c:\users\my\desktop\cohanddemo_windows\cohandsystemlibdemo2\cohandsystemlibdemo2.cpp(3): note: 将宏添加到预编译头中，而不是在此处定义
+  c:\users\my\desktop\cohanddemo_windows\cohandsystemlibdemo2\cohandsystemlibdemo2.cpp(5): note: 使用预编译头
+  CohandDriver.lib(cohanddriver.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/LTCG”规范)
+CohandDriver.lib(cohanddriver.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(CohandSystemLibDemo2.obj 中)
+CohandDriver.lib(cohanddriver.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(CohandSystemLibDemo2.obj 中)
+CohandDriver.lib(cohandsystem.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(CohandSystemLibDemo2.obj 中)
+CohandDriver.lib(cohandsystem.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(CohandSystemLibDemo2.obj 中)
+CohandDriver.lib(serial_driver.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(CohandSystemLibDemo2.obj 中)
+CohandDriver.lib(serial_driver.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(CohandSystemLibDemo2.obj 中)
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+C:\Users\my\Desktop\CohandDemo_Windows\x64\Debug\CohandSystemLibDemo2.exe : fatal error LNK1319: 检测到 6 个不匹配项

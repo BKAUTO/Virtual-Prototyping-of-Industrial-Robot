@@ -1,0 +1,9 @@
+﻿  CohandSystemLibDemo2.cpp
+  CohandDriver.lib(cohanddriver.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
+  正在生成代码
+  已完成代码的生成
+CohandDriver.lib(cohanddriver.obj) : warning LNK4099: 未找到 PDB“CohandDriver.pdb”(使用“CohandDriver.lib(cohanddriver.obj)”或在“C:\Users\my\Desktop\CohandDemo_Windows\x64\Release\CohandDriver.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+CohandDriver.lib(stdafx.obj) : warning LNK4099: 未找到 PDB“CohandDriver.pdb”(使用“CohandDriver.lib(stdafx.obj)”或在“C:\Users\my\Desktop\CohandDemo_Windows\x64\Release\CohandDriver.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+CohandDriver.lib(cohandsystem.obj) : warning LNK4099: 未找到 PDB“CohandDriver.pdb”(使用“CohandDriver.lib(cohandsystem.obj)”或在“C:\Users\my\Desktop\CohandDemo_Windows\x64\Release\CohandDriver.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+CohandDriver.lib(serial_driver.obj) : warning LNK4099: 未找到 PDB“CohandDriver.pdb”(使用“CohandDriver.lib(serial_driver.obj)”或在“C:\Users\my\Desktop\CohandDemo_Windows\x64\Release\CohandDriver.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  CohandSystemLibDemo2.vcxproj -> C:\Users\my\Desktop\CohandDemo_Windows\x64\Release\CohandSystemLibDemo2.exe
