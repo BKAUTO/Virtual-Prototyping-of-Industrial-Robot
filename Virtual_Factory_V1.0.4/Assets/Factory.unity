@@ -4638,7 +4638,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1130996246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000013756}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565654456}
@@ -4646,7 +4646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: 212.6}
+  m_AnchoredPosition: {x: -127, y: 211}
   m_SizeDelta: {x: 92, y: 34.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130996248
@@ -4681,7 +4681,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROKAE
+  m_Text: MIST
 --- !u!222 &1130996249
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5742,7 +5742,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 995759064}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
